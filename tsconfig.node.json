@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2022", // Target modern JavaScript
+    "lib": [
+      "ES2023"
+    ], // Use the latest ECMAScript library
+    "module": "CommonJS", // Use CommonJS for Node.js compatibility
+    "moduleResolution": "node", // Use Node.js module resolution
+    "esModuleInterop": true, // Enable default imports for CommonJS modules
+    "allowSyntheticDefaultImports": true, // Allow default imports for CommonJS modules
+    "types": [
+      "node"
+    ], // Include Node.js types
+    "skipLibCheck": true, // Skip type checking of declaration files
+    "strict": true, // Enable strict type checking
+    "noUnusedLocals": false, // Allow unused local variables
+    "noUnusedParameters": false, // Allow unused function parameters
+    "noFallthroughCasesInSwitch": true, // Prevent fallthrough in switch cases
+    "isolatedModules": true, // Ensure each file can be transpiled in isolation
+    "noEmit": true, // Do not emit output files
+    "moduleDetection": "force" // Force module detection
+  },
+  "include": [
+    "vite.config.ts"
+  ] // Include the Vite configuration file
+}

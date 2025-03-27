@@ -10,19 +10,19 @@ phases:
   pre_build:
     commands:
       - set -eo pipefail
-      - echo ":: Logging in to Registry..."
+      - echo "::Logging in to Registry..."
       - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
-      - echo ":: Login successful!"
+      - echo "::Login successful!"
 
   build:
     commands:
-      - echo ":: Building Docker Image..."
+      - echo "::Building Docker Image..."
       # Build the Docker image 
       - docker build -t "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/aws-ci-cd-demo:latest" .   
-      - echo ":: Build completed successfully!"  
+      - echo "::Build completed successfully!"  
 
   post_build:
     commands:
-      - echo ":: Pushing image to registry..."   
+      - echo "::Pushing image to registry..."   
       - docker push "$DOCKER_REGISTRY_URL/$DOCKER_REGISTRY_USERNAME/aws-ci-cd-demo:latest"   
-      - echo ":: Image pushed successfully!"
+      - echo "::Image pushed successfully!"

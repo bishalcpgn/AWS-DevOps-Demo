@@ -2,20 +2,20 @@ version: 0.0
 os: linux
 
 hooks:
-  # Stops any running containers before installation of the new application
+  # Stop and delete running containers before installation of the new application
   ApplicationStop:
     - location: scripts/stop_container.sh
-      timeout: 300        # 5 minutes timeout to allow the script to run if there are long shutdown processes
-      runas: root         # The script will run as the root user
+      timeout: 300       
+      runas: root       
 
   #  Run a quick check to see if Docker is installed and installs it if not
   BeforeInstall:
     - location: scripts/check_docker.sh
-      timeout: 60         # Shorter timeout as it's just a quick check for Docker installation
-      runas: root         # Run the check as root user
+      timeout: 60         
+      runas: root     
 
   # AfterInstall runs to start the container after the deployment is complete
   AfterInstall:
     - location: scripts/start_container.sh
-      timeout: 300        # Timeout to give enough time to start the container
-      runas: root         # The script will run as root user
+      timeout: 300       
+      runas: root         

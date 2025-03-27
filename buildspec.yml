@@ -9,7 +9,8 @@ env:
 phases:
   pre_build:
     commands:
-      - set -eo pipefail
+      - set -e 
+      - set -o pipefail
       - echo "::Logging in to Registry..."
       - echo "$DOCKER_REGISTRY_PASSWORD" | docker login -u "$DOCKER_REGISTRY_USERNAME" --password-stdin "$DOCKER_REGISTRY_URL"
       - echo "::Login successful!"

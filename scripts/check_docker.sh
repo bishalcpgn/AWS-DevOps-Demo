@@ -1,14 +1,19 @@
 #!/bin/bash
 set -e
 
-if [[ ! docker --version &> /dev/null ]] # Adjust this logic 
- then
+# Check if Docker is installed
+if [[ ! $(command -v docker) ]]; then
     echo "Docker not found, installing Docker..."
-    apt install docker.io -y 
+    
+    # Update package list and install Docker
+    apt update && apt install -y docker.io
+    
+    # Enable and start Docker service
     systemctl enable docker && systemctl start docker
+    
+    echo "Docker installation completed."
 else
     echo "Docker is already installed."
 fi
-
 
 
